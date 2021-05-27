@@ -1,0 +1,69 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/rush/v5/command-line.schema.json",
+  "commands": [
+    {
+      "commandKind": "bulk",
+      "name": "build",
+      "summary": "Build all the projects",
+      "safeForSimultaneousRushProcesses": false,
+      "enableParallelism": true,
+      "ignoreDependencyOrder": false,
+      "ignoreMissingScript": false,
+      "allowWarningsInSuccessfulBuild": true
+    },
+    {
+      "commandKind": "bulk",
+      "name": "rebuild",
+      "summary": "Clean and rebuild all the projects",
+      "safeForSimultaneousRushProcesses": false,
+      "enableParallelism": true,
+      "ignoreDependencyOrder": false,
+      "ignoreMissingScript": false,
+      "allowWarningsInSuccessfulBuild": true
+    },
+    {
+      "commandKind": "bulk",
+      "name": "test",
+      "summary": "Run tests for all the projects",
+      "enableParallelism": true,
+      "ignoreMissingScript": true,
+      "safeForSimultaneousRushProcesses": true,
+      "allowWarningsInSuccessfulBuild": true
+    },
+    {
+      "commandKind": "bulk",
+      "name": "test:coverage",
+      "summary": "Run tests with coverage for all the projects",
+      "enableParallelism": true,
+      "ignoreMissingScript": true,
+      "safeForSimultaneousRushProcesses": true,
+      "allowWarningsInSuccessfulBuild": true
+    },
+    {
+      "name": "prettier",
+      "commandKind": "global",
+      "summary": "Used by the pre-commit Git hook. This command invokes Prettier to reformat staged changes.",
+      "safeForSimultaneousRushProcesses": true,
+      "autoinstallerName": "rush-prettier",
+      "shellCommand": "pretty-quick --staged"
+    },
+    {
+      "commandKind": "bulk",
+      "name": "githook:pre-push",
+      "summary": "Run pre-push hooks",
+      "enableParallelism": true,
+      "ignoreMissingScript": true,
+      "safeForSimultaneousRushProcesses": true,
+      "allowWarningsInSuccessfulBuild": true
+    },
+    {
+      "commandKind": "bulk",
+      "name": "githook:pre-commit",
+      "summary": "Run pre-commit hooks",
+      "enableParallelism": true,
+      "ignoreMissingScript": true,
+      "safeForSimultaneousRushProcesses": true,
+      "allowWarningsInSuccessfulBuild": true
+    }
+  ]
+}

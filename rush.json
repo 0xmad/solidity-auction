@@ -1,0 +1,28 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/rush/v5/rush.schema.json",
+  "rushVersion": "5.47.0",
+  "pnpmVersion": "5.10.4",
+  "nodeSupportedVersionRange": "^15.1.0",
+  "ensureConsistentVersions": true,
+  "gitPolicy": {},
+  "repository": {
+    "url": "https://github.com/errmac-v/solidity-auction.git",
+    "defaultBranch": "master",
+    "defaultRemote": "origin"
+  },
+  "telemetryEnabled": false,
+  "projects": [
+    {
+      "packageName": "@errmac/next-app",
+      "projectFolder": "apps/next-app",
+      "shouldPublish": true,
+      "reviewCategory": "production"
+    },
+    {
+      "packageName": "@errmac/solidity-contracts",
+      "projectFolder": "library/solidity-contracts",
+      "shouldPublish": true,
+      "reviewCategory": "production"
+    }
+  ]
+}
