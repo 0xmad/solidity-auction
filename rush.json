@@ -7,7 +7,7 @@
   "gitPolicy": {},
   "repository": {
     "url": "https://github.com/errmac-v/solidity-auction.git",
-    "defaultBranch": "master",
+    "defaultBranch": "main",
     "defaultRemote": "origin"
   },
   "telemetryEnabled": false,
