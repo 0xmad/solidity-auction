@@ -21,13 +21,22 @@ import { TypedEventFilter, TypedEvent, TypedListener } from './commons';
 
 interface StorageInterface extends ethers.utils.Interface {
   functions: {
+    'c_0x353ef267(bytes32)': FunctionFragment;
     'get()': FunctionFragment;
     'set(uint256)': FunctionFragment;
   };
 
+  encodeFunctionData(
+    functionFragment: 'c_0x353ef267',
+    values: [BytesLike],
+  ): string;
   encodeFunctionData(functionFragment: 'get', values?: undefined): string;
   encodeFunctionData(functionFragment: 'set', values: [BigNumberish]): string;
 
+  decodeFunctionResult(
+    functionFragment: 'c_0x353ef267',
+    data: BytesLike,
+  ): Result;
   decodeFunctionResult(functionFragment: 'get', data: BytesLike): Result;
   decodeFunctionResult(functionFragment: 'set', data: BytesLike): Result;
 
@@ -78,6 +87,11 @@ export class Storage extends BaseContract {
   interface: StorageInterface;
 
   functions: {
+    c_0x353ef267(
+      c__0x353ef267: BytesLike,
+      overrides?: CallOverrides,
+    ): Promise<[void]>;
+
     get(overrides?: CallOverrides): Promise<[BigNumber]>;
 
     set(
@@ -85,6 +99,11 @@ export class Storage extends BaseContract {
       overrides?: Overrides & { from?: string | Promise<string> },
     ): Promise<ContractTransaction>;
   };
+
+  c_0x353ef267(
+    c__0x353ef267: BytesLike,
+    overrides?: CallOverrides,
+  ): Promise<void>;
 
   get(overrides?: CallOverrides): Promise<BigNumber>;
 
@@ -94,6 +113,11 @@ export class Storage extends BaseContract {
   ): Promise<ContractTransaction>;
 
   callStatic: {
+    c_0x353ef267(
+      c__0x353ef267: BytesLike,
+      overrides?: CallOverrides,
+    ): Promise<void>;
+
     get(overrides?: CallOverrides): Promise<BigNumber>;
 
     set(value: BigNumberish, overrides?: CallOverrides): Promise<void>;
@@ -102,6 +126,11 @@ export class Storage extends BaseContract {
   filters: {};
 
   estimateGas: {
+    c_0x353ef267(
+      c__0x353ef267: BytesLike,
+      overrides?: CallOverrides,
+    ): Promise<BigNumber>;
+
     get(overrides?: CallOverrides): Promise<BigNumber>;
 
     set(
@@ -111,6 +140,11 @@ export class Storage extends BaseContract {
   };
 
   populateTransaction: {
+    c_0x353ef267(
+      c__0x353ef267: BytesLike,
+      overrides?: CallOverrides,
+    ): Promise<PopulatedTransaction>;
+
     get(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     set(

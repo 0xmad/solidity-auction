@@ -22,6 +22,7 @@ import { TypedEventFilter, TypedEvent, TypedListener } from './commons';
 interface CoinInterface extends ethers.utils.Interface {
   functions: {
     'balances(address)': FunctionFragment;
+    'c_0xeadce100(bytes32)': FunctionFragment;
     'mint(address,uint256)': FunctionFragment;
     'owner()': FunctionFragment;
     'renounceOwnership()': FunctionFragment;
@@ -30,6 +31,10 @@ interface CoinInterface extends ethers.utils.Interface {
   };
 
   encodeFunctionData(functionFragment: 'balances', values: [string]): string;
+  encodeFunctionData(
+    functionFragment: 'c_0xeadce100',
+    values: [BytesLike],
+  ): string;
   encodeFunctionData(
     functionFragment: 'mint',
     values: [string, BigNumberish],
@@ -49,6 +54,10 @@ interface CoinInterface extends ethers.utils.Interface {
   ): string;
 
   decodeFunctionResult(functionFragment: 'balances', data: BytesLike): Result;
+  decodeFunctionResult(
+    functionFragment: 'c_0xeadce100',
+    data: BytesLike,
+  ): Result;
   decodeFunctionResult(functionFragment: 'mint', data: BytesLike): Result;
   decodeFunctionResult(functionFragment: 'owner', data: BytesLike): Result;
   decodeFunctionResult(
@@ -116,6 +125,11 @@ export class Coin extends BaseContract {
   functions: {
     balances(arg0: string, overrides?: CallOverrides): Promise<[BigNumber]>;
 
+    c_0xeadce100(
+      c__0xeadce100: BytesLike,
+      overrides?: CallOverrides,
+    ): Promise<[void]>;
+
     mint(
       receiver: string,
       amount: BigNumberish,
@@ -142,6 +156,11 @@ export class Coin extends BaseContract {
 
   balances(arg0: string, overrides?: CallOverrides): Promise<BigNumber>;
 
+  c_0xeadce100(
+    c__0xeadce100: BytesLike,
+    overrides?: CallOverrides,
+  ): Promise<void>;
+
   mint(
     receiver: string,
     amount: BigNumberish,
@@ -167,6 +186,11 @@ export class Coin extends BaseContract {
 
   callStatic: {
     balances(arg0: string, overrides?: CallOverrides): Promise<BigNumber>;
+
+    c_0xeadce100(
+      c__0xeadce100: BytesLike,
+      overrides?: CallOverrides,
+    ): Promise<void>;
 
     mint(
       receiver: string,
@@ -220,6 +244,11 @@ export class Coin extends BaseContract {
   estimateGas: {
     balances(arg0: string, overrides?: CallOverrides): Promise<BigNumber>;
 
+    c_0xeadce100(
+      c__0xeadce100: BytesLike,
+      overrides?: CallOverrides,
+    ): Promise<BigNumber>;
+
     mint(
       receiver: string,
       amount: BigNumberish,
@@ -247,6 +276,11 @@ export class Coin extends BaseContract {
   populateTransaction: {
     balances(
       arg0: string,
+      overrides?: CallOverrides,
+    ): Promise<PopulatedTransaction>;
+
+    c_0xeadce100(
+      c__0xeadce100: BytesLike,
       overrides?: CallOverrides,
     ): Promise<PopulatedTransaction>;
 
