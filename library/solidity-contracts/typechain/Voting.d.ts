@@ -21,6 +21,7 @@ import { TypedEventFilter, TypedEvent, TypedListener } from './commons';
 
 interface VotingInterface extends ethers.utils.Interface {
   functions: {
+    'c_0x75fb0e59(bytes32)': FunctionFragment;
     'chairperson()': FunctionFragment;
     'giveRightToVote(address)': FunctionFragment;
     'owner()': FunctionFragment;
@@ -30,6 +31,10 @@ interface VotingInterface extends ethers.utils.Interface {
     'voters(address)': FunctionFragment;
   };
 
+  encodeFunctionData(
+    functionFragment: 'c_0x75fb0e59',
+    values: [BytesLike],
+  ): string;
   encodeFunctionData(
     functionFragment: 'chairperson',
     values?: undefined,
@@ -53,6 +58,10 @@ interface VotingInterface extends ethers.utils.Interface {
   ): string;
   encodeFunctionData(functionFragment: 'voters', values: [string]): string;
 
+  decodeFunctionResult(
+    functionFragment: 'c_0x75fb0e59',
+    data: BytesLike,
+  ): Result;
   decodeFunctionResult(
     functionFragment: 'chairperson',
     data: BytesLike,
@@ -124,6 +133,11 @@ export class Voting extends BaseContract {
   interface: VotingInterface;
 
   functions: {
+    c_0x75fb0e59(
+      c__0x75fb0e59: BytesLike,
+      overrides?: CallOverrides,
+    ): Promise<[void]>;
+
     chairperson(overrides?: CallOverrides): Promise<[string]>;
 
     giveRightToVote(
@@ -158,6 +172,11 @@ export class Voting extends BaseContract {
       }
     >;
   };
+
+  c_0x75fb0e59(
+    c__0x75fb0e59: BytesLike,
+    overrides?: CallOverrides,
+  ): Promise<void>;
 
   chairperson(overrides?: CallOverrides): Promise<string>;
 
@@ -194,6 +213,11 @@ export class Voting extends BaseContract {
   >;
 
   callStatic: {
+    c_0x75fb0e59(
+      c__0x75fb0e59: BytesLike,
+      overrides?: CallOverrides,
+    ): Promise<void>;
+
     chairperson(overrides?: CallOverrides): Promise<string>;
 
     giveRightToVote(voter: string, overrides?: CallOverrides): Promise<void>;
@@ -235,6 +259,11 @@ export class Voting extends BaseContract {
   };
 
   estimateGas: {
+    c_0x75fb0e59(
+      c__0x75fb0e59: BytesLike,
+      overrides?: CallOverrides,
+    ): Promise<BigNumber>;
+
     chairperson(overrides?: CallOverrides): Promise<BigNumber>;
 
     giveRightToVote(
@@ -262,6 +291,11 @@ export class Voting extends BaseContract {
   };
 
   populateTransaction: {
+    c_0x75fb0e59(
+      c__0x75fb0e59: BytesLike,
+      overrides?: CallOverrides,
+    ): Promise<PopulatedTransaction>;
+
     chairperson(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     giveRightToVote(
