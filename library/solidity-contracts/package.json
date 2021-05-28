@@ -14,8 +14,7 @@
     "lint:js:fix": "pnpm run lint:js -- --fix",
     "tsc": "tsc -p tsconfig.json",
     "githook:pre-commit": "NODE_ENV=production CI=true lint-staged && pnpm run tsc && pnpm run lint:sol",
-    "githook:pre-push": "CI=true pnpm run test:coverage",
-    "prepare": "husky install"
+    "githook:pre-push": "CI=true pnpm run test:coverage"
   },
   "keywords": [],
   "author": "",
@@ -50,7 +49,6 @@
     "hardhat-gas-reporter": "^1.0.4",
     "hardhat-log-remover": "^2.0.2",
     "hardhat-spdx-license-identifier": "^2.0.3",
-    "husky": "^6.0.0",
     "lint-staged": "^11.0.0",
     "mocha": "^7.2.0",
     "prettier": "^2.3.0",
