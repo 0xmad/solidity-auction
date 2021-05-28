@@ -80,6 +80,7 @@ common/changes/
 common/scripts/
 common/config/
 CHANGELOG.*
+library/solidity-contracts/typechain/
 
 # Package manager files
 pnpm-lock.yaml
