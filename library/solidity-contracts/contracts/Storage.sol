@@ -6,6 +6,7 @@ pragma solidity ^0.8.4;
 /// @author Errmac
 /// @notice You can use this contract to store data
 contract Storage {
+    /// @notice private value
     uint256 private _value;
 
     /// @notice Constructor with initial store value
