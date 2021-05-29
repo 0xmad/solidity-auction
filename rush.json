@@ -29,6 +29,12 @@
       "projectFolder": "tools/react-eslint",
       "shouldPublish": false,
       "reviewCategory": "tools"
+    },
+    {
+      "packageName": "@errmac/jest",
+      "projectFolder": "tools/jest",
+      "shouldPublish": false,
+      "reviewCategory": "tools"
     }
   ]
 }

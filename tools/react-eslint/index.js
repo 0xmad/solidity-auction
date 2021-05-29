@@ -64,7 +64,12 @@ module.exports = {
     'import/no-extraneous-dependencies': [
       'error',
       {
-        devDependencies: ['**/*.test.ts', '**/*.test.tsx', '**/setupTests.ts'],
+        devDependencies: [
+          '**/*.test.ts',
+          '**/*.test.tsx',
+          '**/setupTests.ts',
+          'jest.config.ts',
+        ],
       },
     ],
     'no-debugger': isProduction ? 'error' : 'off',
@@ -97,7 +102,7 @@ module.exports = {
 
   overrides: [
     {
-      files: ['**/*.ts', '**/*.tsx'],
+      files: ['src/**/*.ts', 'src/**/*.tsx'],
       parser: '@typescript-eslint/parser',
       extends: [
         'plugin:@typescript-eslint/eslint-recommended',

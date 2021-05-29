@@ -1,19 +1,11 @@
+import config from '@errmac/jest';
+
 export default {
-  clearMocks: true,
-  coverageDirectory: 'coverage',
-  coveragePathIgnorePatterns: ['/node_modules/'],
-  transform: {
-    '^.+\\.(ts|tsx)$': 'ts-jest',
-  },
+  ...config,
   moduleNameMapper: {
-    '^.+\\.(css|less)$': '<rootDir>/src/config/CSSStub.ts',
+    '^.+\\.(css|less)$': '<rootDir>/config/CSSStub.ts',
   },
-  testEnvironment: 'jsdom',
-  setupFilesAfterEnv: ['<rootDir>/src/config/setupTests.ts'],
-  coverageThreshold: undefined,
-  maxWorkers: '50%',
-  testMatch: ['**/__tests__/**/*.[jt]s?(x)', '**/?(*.)+(spec|test).[tj]s?(x)'],
-  testPathIgnorePatterns: ['/node_modules/'],
+  setupFilesAfterEnv: ['<rootDir>/config/setupTests.ts'],
   collectCoverageFrom: [
     'src/**/*.ts',
     'src/**/*.tsx',
