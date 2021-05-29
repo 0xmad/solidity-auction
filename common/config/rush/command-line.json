@@ -60,7 +60,7 @@
       "commandKind": "bulk",
       "name": "githook:pre-commit",
       "summary": "Run pre-commit hooks",
-      "enableParallelism": true,
+      "enableParallelism": false,
       "ignoreMissingScript": true,
       "safeForSimultaneousRushProcesses": true,
       "allowWarningsInSuccessfulBuild": true
