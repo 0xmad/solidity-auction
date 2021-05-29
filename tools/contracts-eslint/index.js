@@ -1,7 +1,3 @@
-const fs = require('fs');
-
-const prettierConfig = fs.readFileSync('./.prettierrc', 'utf8');
-const prettierOptions = JSON.parse(prettierConfig);
 const isProduction = process.env.NODE_ENV === 'production';
 
 module.exports = {
@@ -54,7 +50,31 @@ module.exports = {
     'no-console': isProduction ? 'error' : 'off',
     'no-underscore-dangle': 'error',
     'no-redeclare': ['error', { builtinGlobals: true }],
-    'prettier/prettier': ['error', prettierOptions],
+    'prettier/prettier': [
+      'error',
+      {
+        printWidth: 80,
+        tabWidth: 2,
+        semi: true,
+        singleQuote: true,
+        useTabs: false,
+        trailingComma: 'all',
+        arrowParens: 'always',
+        overrides: [
+          {
+            files: '*.sol',
+            options: {
+              printWidth: 80,
+              tabWidth: 4,
+              useTabs: false,
+              singleQuote: false,
+              bracketSpacing: false,
+              explicitTypes: 'always',
+            },
+          },
+        ],
+      },
+    ],
     'import/prefer-default-export': 'warn',
 
     'import/extensions': ['error', 'never'],
