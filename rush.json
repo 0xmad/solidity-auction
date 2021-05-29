@@ -31,6 +31,12 @@
       "reviewCategory": "tools"
     },
     {
+      "packageName": "@errmac/contracts-eslint",
+      "projectFolder": "tools/contracts-eslint",
+      "shouldPublish": false,
+      "reviewCategory": "tools"
+    },
+    {
       "packageName": "@errmac/jest",
       "projectFolder": "tools/jest",
       "shouldPublish": false,

@@ -1,19 +1,7 @@
 {
+  "extends": "./node_modules/@errmac/contracts-eslint/tsconfig.json",
   "compilerOptions": {
-    "target": "esnext",
-    "allowJs": true,
-    "skipLibCheck": true,
-    "strict": true,
-    "forceConsistentCasingInFileNames": true,
-    "noEmit": true,
-    "esModuleInterop": true,
-    "baseUrl": ".",
-    "module": "commonjs",
-    "moduleResolution": "node",
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "outDir": "dist",
-    "typeRoots": ["./node_modules/@types", "./typings"],
+    "typeRoots": ["./typings"],
     "paths": {
       "@openzeppelin/test-helpers": [
         "./typings/@openzeppelin__test-helpers.d.ts"
