@@ -23,6 +23,12 @@
       "projectFolder": "library/solidity-contracts",
       "shouldPublish": true,
       "reviewCategory": "production"
+    },
+    {
+      "packageName": "@errmac/react-eslint",
+      "projectFolder": "tools/react-eslint",
+      "shouldPublish": false,
+      "reviewCategory": "tools"
     }
   ]
 }
