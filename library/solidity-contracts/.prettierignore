@@ -39,8 +39,8 @@ build/Release
 node_modules/
 jspm_packages/
 cache/
-artifacts/
-typechain/
+**/artifacts/
+**/typechain/
 
 # Optional npm cache directory
 .npm

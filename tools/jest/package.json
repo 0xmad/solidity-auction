@@ -1,0 +1,17 @@
+{
+  "name": "@errmac/jest",
+  "version": "1.0.0",
+  "description": "Jest config",
+  "license": "ISC",
+  "main": "index.ts",
+  "module": "index.ts",
+  "private": true,
+  "scripts": {
+    "build": ""
+  },
+  "peerDependencies": {
+    "jest": "^27.0.1",
+    "ts-jest": "^27.0.1",
+    "@testing-library/jest-dom": "^5.12.0"
+  }
+}

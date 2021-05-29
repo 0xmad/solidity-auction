@@ -1,2 +1,2 @@
-typechain/
+**/typechain/
 .solhint.json
