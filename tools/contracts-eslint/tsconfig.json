@@ -20,7 +20,5 @@
       ]
     }
   },
-  "files": ["./hardhat.config.ts"],
-  "include": ["./scripts", "./test", "./types"],
   "exclude": ["node_modules", "./typechain/**/*.ts"]
 }

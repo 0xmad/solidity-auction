@@ -11,7 +11,6 @@ import {
   PopulatedTransaction,
   BaseContract,
   ContractTransaction,
-  Overrides,
   CallOverrides,
 } from "ethers";
 import { BytesLike } from "@ethersproject/bytes";
@@ -19,31 +18,25 @@ import { Listener, Provider } from "@ethersproject/providers";
 import { FunctionFragment, EventFragment, Result } from "@ethersproject/abi";
 import { TypedEventFilter, TypedEvent, TypedListener } from "./commons";
 
-interface StorageInterface extends ethers.utils.Interface {
+interface TypesInterface extends ethers.utils.Interface {
   functions: {
-    "c_0x353ef267(bytes32)": FunctionFragment;
-    "get()": FunctionFragment;
-    "set(uint256)": FunctionFragment;
+    "c_0x5f17b9ef(bytes32)": FunctionFragment;
   };
 
   encodeFunctionData(
-    functionFragment: "c_0x353ef267",
+    functionFragment: "c_0x5f17b9ef",
     values: [BytesLike]
   ): string;
-  encodeFunctionData(functionFragment: "get", values?: undefined): string;
-  encodeFunctionData(functionFragment: "set", values: [BigNumberish]): string;
 
   decodeFunctionResult(
-    functionFragment: "c_0x353ef267",
+    functionFragment: "c_0x5f17b9ef",
     data: BytesLike
   ): Result;
-  decodeFunctionResult(functionFragment: "get", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "set", data: BytesLike): Result;
 
   events: {};
 }
 
-export class Storage extends BaseContract {
+export class Types extends BaseContract {
   connect(signerOrProvider: Signer | Provider | string): this;
   attach(addressOrName: string): this;
   deployed(): Promise<this>;
@@ -84,72 +77,40 @@ export class Storage extends BaseContract {
     toBlock?: string | number | undefined
   ): Promise<Array<TypedEvent<EventArgsArray & EventArgsObject>>>;
 
-  interface: StorageInterface;
+  interface: TypesInterface;
 
   functions: {
-    c_0x353ef267(
-      c__0x353ef267: BytesLike,
+    c_0x5f17b9ef(
+      c__0x5f17b9ef: BytesLike,
       overrides?: CallOverrides
     ): Promise<[void]>;
-
-    get(overrides?: CallOverrides): Promise<[BigNumber]>;
-
-    set(
-      value: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<ContractTransaction>;
   };
 
-  c_0x353ef267(
-    c__0x353ef267: BytesLike,
+  c_0x5f17b9ef(
+    c__0x5f17b9ef: BytesLike,
     overrides?: CallOverrides
   ): Promise<void>;
 
-  get(overrides?: CallOverrides): Promise<BigNumber>;
-
-  set(
-    value: BigNumberish,
-    overrides?: Overrides & { from?: string | Promise<string> }
-  ): Promise<ContractTransaction>;
-
   callStatic: {
-    c_0x353ef267(
-      c__0x353ef267: BytesLike,
+    c_0x5f17b9ef(
+      c__0x5f17b9ef: BytesLike,
       overrides?: CallOverrides
     ): Promise<void>;
-
-    get(overrides?: CallOverrides): Promise<BigNumber>;
-
-    set(value: BigNumberish, overrides?: CallOverrides): Promise<void>;
   };
 
   filters: {};
 
   estimateGas: {
-    c_0x353ef267(
-      c__0x353ef267: BytesLike,
+    c_0x5f17b9ef(
+      c__0x5f17b9ef: BytesLike,
       overrides?: CallOverrides
-    ): Promise<BigNumber>;
-
-    get(overrides?: CallOverrides): Promise<BigNumber>;
-
-    set(
-      value: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<BigNumber>;
   };
 
   populateTransaction: {
-    c_0x353ef267(
-      c__0x353ef267: BytesLike,
+    c_0x5f17b9ef(
+      c__0x5f17b9ef: BytesLike,
       overrides?: CallOverrides
-    ): Promise<PopulatedTransaction>;
-
-    get(overrides?: CallOverrides): Promise<PopulatedTransaction>;
-
-    set(
-      value: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
   };
 }
