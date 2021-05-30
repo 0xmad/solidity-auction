@@ -7,6 +7,7 @@ dependencies:
   '@nomiclabs/hardhat-solhint': 2.0.0_hardhat@2.3.0
   '@nomiclabs/hardhat-waffle': 2.0.1_bff7ee2628d283b82fb1e76f25bcc940
   '@openzeppelin/contracts': 4.1.0
+  '@openzeppelin/contracts-upgradeable': 4.1.0
   '@openzeppelin/hardhat-upgrades': 1.8.2_845b9ddb73040137c7be177df5e37a1b
   '@openzeppelin/test-environment': 0.1.9
   '@openzeppelin/test-helpers': 0.5.11
@@ -2217,6 +2218,10 @@ packages:
     dev: false
     resolution:
       integrity: sha512-/P8v8ZFVwK+Z7rHQH2N3hqzEmTzLFjhMtvNK4FeIak6DEeONZ92vdFaFb10CCCQtp390Rp/Y57Rtfrm50bUdMQ==
+  /@openzeppelin/contracts-upgradeable/4.1.0:
+    dev: false
+    resolution:
+      integrity: sha512-QZSvbYqNpU/x60vARhq/jghh97VWjml3NAlKfu4u1XehvpEBbHVXJyKTBSZtZY7jviG305jOczEisnN8VeOMcw==
   /@openzeppelin/contracts/4.1.0:
     dev: false
     resolution:
@@ -16684,6 +16689,7 @@ packages:
       '@nomiclabs/hardhat-solhint': 2.0.0_hardhat@2.3.0
       '@nomiclabs/hardhat-waffle': 2.0.1_bff7ee2628d283b82fb1e76f25bcc940
       '@openzeppelin/contracts': 4.1.0
+      '@openzeppelin/contracts-upgradeable': 4.1.0
       '@openzeppelin/hardhat-upgrades': 1.8.2_845b9ddb73040137c7be177df5e37a1b
       '@openzeppelin/test-environment': 0.1.9
       '@openzeppelin/test-helpers': 0.5.11
@@ -16723,7 +16729,7 @@ packages:
     dev: false
     name: '@rush-temp/solidity-contracts'
     resolution:
-      integrity: sha512-KdYut9mkBhzJAxkzKCr8Br4axHM97D5LdmzArecorpborqYBADBQKXHfkNCjKbLHW/5aacqLsutiwGN3eVp8zA==
+      integrity: sha512-KV+cY48+aJrJJb0fHmyuNVsFnWawZRzN3p+m/YpMJGN1inrFbcKu98Z2B7pMzoyUMijjXhCexiYcA7fZniNiEQ==
       tarball: 'file:projects/solidity-contracts.tgz'
     version: 0.0.0
   github.com/ethereumjs/ethereumjs-abi/ee3994657fa7a427238e6ba92a84d0b529bbcde0:
@@ -16744,6 +16750,7 @@ specifiers:
   '@nomiclabs/hardhat-solhint': ^2.0.0
   '@nomiclabs/hardhat-waffle': ^2.0.1
   '@openzeppelin/contracts': ^4.1.0
+  '@openzeppelin/contracts-upgradeable': ^4.1.0
   '@openzeppelin/hardhat-upgrades': ^1.8.2
   '@openzeppelin/test-environment': ^0.1.9
   '@openzeppelin/test-helpers': ^0.5.11

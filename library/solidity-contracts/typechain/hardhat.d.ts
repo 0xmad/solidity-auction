@@ -2,46 +2,58 @@
 /* tslint:disable */
 /* eslint-disable */
 
-import { ethers } from 'ethers';
+import { ethers } from "ethers";
 import {
   FactoryOptions,
   HardhatEthersHelpers as HardhatEthersHelpersBase,
-} from '@nomiclabs/hardhat-ethers/types';
+} from "@nomiclabs/hardhat-ethers/types";
 
-import * as Contracts from '.';
+import * as Contracts from ".";
 
-declare module 'hardhat/types/runtime' {
+declare module "hardhat/types/runtime" {
   interface HardhatEthersHelpers extends HardhatEthersHelpersBase {
     getContractFactory(
-      name: 'Ownable',
-      signerOrOptions?: ethers.Signer | FactoryOptions,
+      name: "OwnableUpgradeable",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.OwnableUpgradeable__factory>;
+    getContractFactory(
+      name: "Ownable",
+      signerOrOptions?: ethers.Signer | FactoryOptions
     ): Promise<Contracts.Ownable__factory>;
     getContractFactory(
-      name: 'Coin',
-      signerOrOptions?: ethers.Signer | FactoryOptions,
+      name: "Auction",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.Auction__factory>;
+    getContractFactory(
+      name: "Types",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.Types__factory>;
+    getContractFactory(
+      name: "Coin",
+      signerOrOptions?: ethers.Signer | FactoryOptions
     ): Promise<Contracts.Coin__factory>;
     getContractFactory(
-      name: 'Greeter',
-      signerOrOptions?: ethers.Signer | FactoryOptions,
+      name: "Greeter",
+      signerOrOptions?: ethers.Signer | FactoryOptions
     ): Promise<Contracts.Greeter__factory>;
     getContractFactory(
-      name: 'Storage',
-      signerOrOptions?: ethers.Signer | FactoryOptions,
+      name: "Storage",
+      signerOrOptions?: ethers.Signer | FactoryOptions
     ): Promise<Contracts.Storage__factory>;
     getContractFactory(
-      name: 'Voting',
-      signerOrOptions?: ethers.Signer | FactoryOptions,
+      name: "Voting",
+      signerOrOptions?: ethers.Signer | FactoryOptions
     ): Promise<Contracts.Voting__factory>;
 
     // default types
     getContractFactory(
       name: string,
-      signerOrOptions?: ethers.Signer | FactoryOptions,
+      signerOrOptions?: ethers.Signer | FactoryOptions
     ): Promise<ethers.ContractFactory>;
     getContractFactory(
       abi: any[],
       bytecode: ethers.utils.BytesLike,
-      signer?: ethers.Signer,
+      signer?: ethers.Signer
     ): Promise<ethers.ContractFactory>;
   }
 }

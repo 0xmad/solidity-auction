@@ -19,52 +19,28 @@ import { Listener, Provider } from "@ethersproject/providers";
 import { FunctionFragment, EventFragment, Result } from "@ethersproject/abi";
 import { TypedEventFilter, TypedEvent, TypedListener } from "./commons";
 
-interface CoinInterface extends ethers.utils.Interface {
+interface OwnableUpgradeableInterface extends ethers.utils.Interface {
   functions: {
-    "balances(address)": FunctionFragment;
-    "c_0xeadce100(bytes32)": FunctionFragment;
-    "mint(address,uint256)": FunctionFragment;
     "owner()": FunctionFragment;
     "renounceOwnership()": FunctionFragment;
-    "send(address,uint256)": FunctionFragment;
     "transferOwnership(address)": FunctionFragment;
   };
 
-  encodeFunctionData(functionFragment: "balances", values: [string]): string;
-  encodeFunctionData(
-    functionFragment: "c_0xeadce100",
-    values: [BytesLike]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "mint",
-    values: [string, BigNumberish]
-  ): string;
   encodeFunctionData(functionFragment: "owner", values?: undefined): string;
   encodeFunctionData(
     functionFragment: "renounceOwnership",
     values?: undefined
   ): string;
   encodeFunctionData(
-    functionFragment: "send",
-    values: [string, BigNumberish]
-  ): string;
-  encodeFunctionData(
     functionFragment: "transferOwnership",
     values: [string]
   ): string;
 
-  decodeFunctionResult(functionFragment: "balances", data: BytesLike): Result;
-  decodeFunctionResult(
-    functionFragment: "c_0xeadce100",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(functionFragment: "mint", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "owner", data: BytesLike): Result;
   decodeFunctionResult(
     functionFragment: "renounceOwnership",
     data: BytesLike
   ): Result;
-  decodeFunctionResult(functionFragment: "send", data: BytesLike): Result;
   decodeFunctionResult(
     functionFragment: "transferOwnership",
     data: BytesLike
@@ -72,14 +48,12 @@ interface CoinInterface extends ethers.utils.Interface {
 
   events: {
     "OwnershipTransferred(address,address)": EventFragment;
-    "Send(tuple)": EventFragment;
   };
 
   getEvent(nameOrSignatureOrTopic: "OwnershipTransferred"): EventFragment;
-  getEvent(nameOrSignatureOrTopic: "Send"): EventFragment;
 }
 
-export class Coin extends BaseContract {
+export class OwnableUpgradeable extends BaseContract {
   connect(signerOrProvider: Signer | Provider | string): this;
   attach(addressOrName: string): this;
   deployed(): Promise<this>;
@@ -120,31 +94,12 @@ export class Coin extends BaseContract {
     toBlock?: string | number | undefined
   ): Promise<Array<TypedEvent<EventArgsArray & EventArgsObject>>>;
 
-  interface: CoinInterface;
+  interface: OwnableUpgradeableInterface;
 
   functions: {
-    balances(arg0: string, overrides?: CallOverrides): Promise<[BigNumber]>;
-
-    c_0xeadce100(
-      c__0xeadce100: BytesLike,
-      overrides?: CallOverrides
-    ): Promise<[void]>;
-
-    mint(
-      receiver: string,
-      amount: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<ContractTransaction>;
-
     owner(overrides?: CallOverrides): Promise<[string]>;
 
     renounceOwnership(
-      overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<ContractTransaction>;
-
-    send(
-      receiver: string,
-      amount: BigNumberish,
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
 
@@ -154,28 +109,9 @@ export class Coin extends BaseContract {
     ): Promise<ContractTransaction>;
   };
 
-  balances(arg0: string, overrides?: CallOverrides): Promise<BigNumber>;
-
-  c_0xeadce100(
-    c__0xeadce100: BytesLike,
-    overrides?: CallOverrides
-  ): Promise<void>;
-
-  mint(
-    receiver: string,
-    amount: BigNumberish,
-    overrides?: Overrides & { from?: string | Promise<string> }
-  ): Promise<ContractTransaction>;
-
   owner(overrides?: CallOverrides): Promise<string>;
 
   renounceOwnership(
-    overrides?: Overrides & { from?: string | Promise<string> }
-  ): Promise<ContractTransaction>;
-
-  send(
-    receiver: string,
-    amount: BigNumberish,
     overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
 
@@ -185,28 +121,9 @@ export class Coin extends BaseContract {
   ): Promise<ContractTransaction>;
 
   callStatic: {
-    balances(arg0: string, overrides?: CallOverrides): Promise<BigNumber>;
-
-    c_0xeadce100(
-      c__0xeadce100: BytesLike,
-      overrides?: CallOverrides
-    ): Promise<void>;
-
-    mint(
-      receiver: string,
-      amount: BigNumberish,
-      overrides?: CallOverrides
-    ): Promise<void>;
-
     owner(overrides?: CallOverrides): Promise<string>;
 
     renounceOwnership(overrides?: CallOverrides): Promise<void>;
-
-    send(
-      receiver: string,
-      amount: BigNumberish,
-      overrides?: CallOverrides
-    ): Promise<void>;
 
     transferOwnership(
       newOwner: string,
@@ -222,50 +139,12 @@ export class Coin extends BaseContract {
       [string, string],
       { previousOwner: string; newOwner: string }
     >;
-
-    Send(
-      data?: null
-    ): TypedEventFilter<
-      [
-        [string, string, BigNumber] & {
-          from: string;
-          to: string;
-          amount: BigNumber;
-        }
-      ],
-      {
-        data: [string, string, BigNumber] & {
-          from: string;
-          to: string;
-          amount: BigNumber;
-        };
-      }
-    >;
   };
 
   estimateGas: {
-    balances(arg0: string, overrides?: CallOverrides): Promise<BigNumber>;
-
-    c_0xeadce100(
-      c__0xeadce100: BytesLike,
-      overrides?: CallOverrides
-    ): Promise<BigNumber>;
-
-    mint(
-      receiver: string,
-      amount: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<BigNumber>;
-
     owner(overrides?: CallOverrides): Promise<BigNumber>;
 
     renounceOwnership(
-      overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<BigNumber>;
-
-    send(
-      receiver: string,
-      amount: BigNumberish,
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<BigNumber>;
 
@@ -276,31 +155,9 @@ export class Coin extends BaseContract {
   };
 
   populateTransaction: {
-    balances(
-      arg0: string,
-      overrides?: CallOverrides
-    ): Promise<PopulatedTransaction>;
-
-    c_0xeadce100(
-      c__0xeadce100: BytesLike,
-      overrides?: CallOverrides
-    ): Promise<PopulatedTransaction>;
-
-    mint(
-      receiver: string,
-      amount: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<PopulatedTransaction>;
-
     owner(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     renounceOwnership(
-      overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<PopulatedTransaction>;
-
-    send(
-      receiver: string,
-      amount: BigNumberish,
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
 

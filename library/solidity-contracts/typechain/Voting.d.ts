@@ -13,80 +13,80 @@ import {
   ContractTransaction,
   Overrides,
   CallOverrides,
-} from 'ethers';
-import { BytesLike } from '@ethersproject/bytes';
-import { Listener, Provider } from '@ethersproject/providers';
-import { FunctionFragment, EventFragment, Result } from '@ethersproject/abi';
-import { TypedEventFilter, TypedEvent, TypedListener } from './commons';
+} from "ethers";
+import { BytesLike } from "@ethersproject/bytes";
+import { Listener, Provider } from "@ethersproject/providers";
+import { FunctionFragment, EventFragment, Result } from "@ethersproject/abi";
+import { TypedEventFilter, TypedEvent, TypedListener } from "./commons";
 
 interface VotingInterface extends ethers.utils.Interface {
   functions: {
-    'c_0x75fb0e59(bytes32)': FunctionFragment;
-    'chairperson()': FunctionFragment;
-    'giveRightToVote(address)': FunctionFragment;
-    'owner()': FunctionFragment;
-    'proposals(uint256)': FunctionFragment;
-    'renounceOwnership()': FunctionFragment;
-    'transferOwnership(address)': FunctionFragment;
-    'voters(address)': FunctionFragment;
+    "c_0x75fb0e59(bytes32)": FunctionFragment;
+    "chairperson()": FunctionFragment;
+    "giveRightToVote(address)": FunctionFragment;
+    "owner()": FunctionFragment;
+    "proposals(uint256)": FunctionFragment;
+    "renounceOwnership()": FunctionFragment;
+    "transferOwnership(address)": FunctionFragment;
+    "voters(address)": FunctionFragment;
   };
 
   encodeFunctionData(
-    functionFragment: 'c_0x75fb0e59',
-    values: [BytesLike],
+    functionFragment: "c_0x75fb0e59",
+    values: [BytesLike]
   ): string;
   encodeFunctionData(
-    functionFragment: 'chairperson',
-    values?: undefined,
+    functionFragment: "chairperson",
+    values?: undefined
   ): string;
   encodeFunctionData(
-    functionFragment: 'giveRightToVote',
-    values: [string],
+    functionFragment: "giveRightToVote",
+    values: [string]
   ): string;
-  encodeFunctionData(functionFragment: 'owner', values?: undefined): string;
+  encodeFunctionData(functionFragment: "owner", values?: undefined): string;
   encodeFunctionData(
-    functionFragment: 'proposals',
-    values: [BigNumberish],
-  ): string;
-  encodeFunctionData(
-    functionFragment: 'renounceOwnership',
-    values?: undefined,
+    functionFragment: "proposals",
+    values: [BigNumberish]
   ): string;
   encodeFunctionData(
-    functionFragment: 'transferOwnership',
-    values: [string],
+    functionFragment: "renounceOwnership",
+    values?: undefined
   ): string;
-  encodeFunctionData(functionFragment: 'voters', values: [string]): string;
+  encodeFunctionData(
+    functionFragment: "transferOwnership",
+    values: [string]
+  ): string;
+  encodeFunctionData(functionFragment: "voters", values: [string]): string;
 
   decodeFunctionResult(
-    functionFragment: 'c_0x75fb0e59',
-    data: BytesLike,
+    functionFragment: "c_0x75fb0e59",
+    data: BytesLike
   ): Result;
   decodeFunctionResult(
-    functionFragment: 'chairperson',
-    data: BytesLike,
+    functionFragment: "chairperson",
+    data: BytesLike
   ): Result;
   decodeFunctionResult(
-    functionFragment: 'giveRightToVote',
-    data: BytesLike,
+    functionFragment: "giveRightToVote",
+    data: BytesLike
   ): Result;
-  decodeFunctionResult(functionFragment: 'owner', data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: 'proposals', data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "owner", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "proposals", data: BytesLike): Result;
   decodeFunctionResult(
-    functionFragment: 'renounceOwnership',
-    data: BytesLike,
+    functionFragment: "renounceOwnership",
+    data: BytesLike
   ): Result;
   decodeFunctionResult(
-    functionFragment: 'transferOwnership',
-    data: BytesLike,
+    functionFragment: "transferOwnership",
+    data: BytesLike
   ): Result;
-  decodeFunctionResult(functionFragment: 'voters', data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "voters", data: BytesLike): Result;
 
   events: {
-    'OwnershipTransferred(address,address)': EventFragment;
+    "OwnershipTransferred(address,address)": EventFragment;
   };
 
-  getEvent(nameOrSignatureOrTopic: 'OwnershipTransferred'): EventFragment;
+  getEvent(nameOrSignatureOrTopic: "OwnershipTransferred"): EventFragment;
 }
 
 export class Voting extends BaseContract {
@@ -95,26 +95,26 @@ export class Voting extends BaseContract {
   deployed(): Promise<this>;
 
   listeners<EventArgsArray extends Array<any>, EventArgsObject>(
-    eventFilter?: TypedEventFilter<EventArgsArray, EventArgsObject>,
+    eventFilter?: TypedEventFilter<EventArgsArray, EventArgsObject>
   ): Array<TypedListener<EventArgsArray, EventArgsObject>>;
   off<EventArgsArray extends Array<any>, EventArgsObject>(
     eventFilter: TypedEventFilter<EventArgsArray, EventArgsObject>,
-    listener: TypedListener<EventArgsArray, EventArgsObject>,
+    listener: TypedListener<EventArgsArray, EventArgsObject>
   ): this;
   on<EventArgsArray extends Array<any>, EventArgsObject>(
     eventFilter: TypedEventFilter<EventArgsArray, EventArgsObject>,
-    listener: TypedListener<EventArgsArray, EventArgsObject>,
+    listener: TypedListener<EventArgsArray, EventArgsObject>
   ): this;
   once<EventArgsArray extends Array<any>, EventArgsObject>(
     eventFilter: TypedEventFilter<EventArgsArray, EventArgsObject>,
-    listener: TypedListener<EventArgsArray, EventArgsObject>,
+    listener: TypedListener<EventArgsArray, EventArgsObject>
   ): this;
   removeListener<EventArgsArray extends Array<any>, EventArgsObject>(
     eventFilter: TypedEventFilter<EventArgsArray, EventArgsObject>,
-    listener: TypedListener<EventArgsArray, EventArgsObject>,
+    listener: TypedListener<EventArgsArray, EventArgsObject>
   ): this;
   removeAllListeners<EventArgsArray extends Array<any>, EventArgsObject>(
-    eventFilter: TypedEventFilter<EventArgsArray, EventArgsObject>,
+    eventFilter: TypedEventFilter<EventArgsArray, EventArgsObject>
   ): this;
 
   listeners(eventName?: string): Array<Listener>;
@@ -127,7 +127,7 @@ export class Voting extends BaseContract {
   queryFilter<EventArgsArray extends Array<any>, EventArgsObject>(
     event: TypedEventFilter<EventArgsArray, EventArgsObject>,
     fromBlockOrBlockhash?: string | number | undefined,
-    toBlock?: string | number | undefined,
+    toBlock?: string | number | undefined
   ): Promise<Array<TypedEvent<EventArgsArray & EventArgsObject>>>;
 
   interface: VotingInterface;
@@ -135,35 +135,35 @@ export class Voting extends BaseContract {
   functions: {
     c_0x75fb0e59(
       c__0x75fb0e59: BytesLike,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<[void]>;
 
     chairperson(overrides?: CallOverrides): Promise<[string]>;
 
     giveRightToVote(
       voter: string,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
 
     owner(overrides?: CallOverrides): Promise<[string]>;
 
     proposals(
       arg0: BigNumberish,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<[string, BigNumber] & { name: string; count: BigNumber }>;
 
     renounceOwnership(
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
 
     transferOwnership(
       newOwner: string,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
 
     voters(
       arg0: string,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<
       [BigNumber, boolean, BigNumber] & {
         weight: BigNumber;
@@ -175,35 +175,35 @@ export class Voting extends BaseContract {
 
   c_0x75fb0e59(
     c__0x75fb0e59: BytesLike,
-    overrides?: CallOverrides,
+    overrides?: CallOverrides
   ): Promise<void>;
 
   chairperson(overrides?: CallOverrides): Promise<string>;
 
   giveRightToVote(
     voter: string,
-    overrides?: Overrides & { from?: string | Promise<string> },
+    overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
 
   owner(overrides?: CallOverrides): Promise<string>;
 
   proposals(
     arg0: BigNumberish,
-    overrides?: CallOverrides,
+    overrides?: CallOverrides
   ): Promise<[string, BigNumber] & { name: string; count: BigNumber }>;
 
   renounceOwnership(
-    overrides?: Overrides & { from?: string | Promise<string> },
+    overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
 
   transferOwnership(
     newOwner: string,
-    overrides?: Overrides & { from?: string | Promise<string> },
+    overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
 
   voters(
     arg0: string,
-    overrides?: CallOverrides,
+    overrides?: CallOverrides
   ): Promise<
     [BigNumber, boolean, BigNumber] & {
       weight: BigNumber;
@@ -215,7 +215,7 @@ export class Voting extends BaseContract {
   callStatic: {
     c_0x75fb0e59(
       c__0x75fb0e59: BytesLike,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<void>;
 
     chairperson(overrides?: CallOverrides): Promise<string>;
@@ -226,19 +226,19 @@ export class Voting extends BaseContract {
 
     proposals(
       arg0: BigNumberish,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<[string, BigNumber] & { name: string; count: BigNumber }>;
 
     renounceOwnership(overrides?: CallOverrides): Promise<void>;
 
     transferOwnership(
       newOwner: string,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<void>;
 
     voters(
       arg0: string,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<
       [BigNumber, boolean, BigNumber] & {
         weight: BigNumber;
@@ -251,7 +251,7 @@ export class Voting extends BaseContract {
   filters: {
     OwnershipTransferred(
       previousOwner?: string | null,
-      newOwner?: string | null,
+      newOwner?: string | null
     ): TypedEventFilter<
       [string, string],
       { previousOwner: string; newOwner: string }
@@ -261,30 +261,30 @@ export class Voting extends BaseContract {
   estimateGas: {
     c_0x75fb0e59(
       c__0x75fb0e59: BytesLike,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<BigNumber>;
 
     chairperson(overrides?: CallOverrides): Promise<BigNumber>;
 
     giveRightToVote(
       voter: string,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<BigNumber>;
 
     owner(overrides?: CallOverrides): Promise<BigNumber>;
 
     proposals(
       arg0: BigNumberish,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<BigNumber>;
 
     renounceOwnership(
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<BigNumber>;
 
     transferOwnership(
       newOwner: string,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<BigNumber>;
 
     voters(arg0: string, overrides?: CallOverrides): Promise<BigNumber>;
@@ -293,35 +293,35 @@ export class Voting extends BaseContract {
   populateTransaction: {
     c_0x75fb0e59(
       c__0x75fb0e59: BytesLike,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;
 
     chairperson(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     giveRightToVote(
       voter: string,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
 
     owner(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     proposals(
       arg0: BigNumberish,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;
 
     renounceOwnership(
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
 
     transferOwnership(
       newOwner: string,
-      overrides?: Overrides & { from?: string | Promise<string> },
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
 
     voters(
       arg0: string,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;
   };
 }

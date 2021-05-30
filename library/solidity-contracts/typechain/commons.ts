@@ -2,8 +2,8 @@
 /* tslint:disable */
 /* eslint-disable */
 
-import { EventFilter, Event } from 'ethers';
-import { Result } from '@ethersproject/abi';
+import { EventFilter, Event } from "ethers";
+import { Result } from "@ethersproject/abi";
 
 export interface TypedEventFilter<_EventArgsArray, _EventArgsObject>
   extends EventFilter {}
@@ -16,7 +16,7 @@ export type TypedListener<EventArgsArray extends Array<any>, EventArgsObject> =
   (
     ...listenerArg: [
       ...EventArgsArray,
-      TypedEvent<EventArgsArray & EventArgsObject>,
+      TypedEvent<EventArgsArray & EventArgsObject>
     ]
   ) => void;
 
@@ -30,5 +30,5 @@ export type GetContractTypeFromFactory<F> = F extends MinEthersFactory<
   ? C
   : never;
 export type GetARGsTypeFromFactory<F> = F extends MinEthersFactory<any, any>
-  ? Parameters<F['deploy']>
+  ? Parameters<F["deploy"]>
   : never;
