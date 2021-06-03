@@ -1,65 +1,20 @@
-import { ReactElement } from 'react';
+import { ChangeEvent, ReactElement } from 'react';
 
-import { BoxProps, FlexProps, TextProps } from '../Primitives';
-import { Container, Label, Input } from './styles';
-
-interface InputTheme {
-  container?: FlexProps;
-  label?: TextProps;
-  input?: BoxProps;
-  textarea?: BoxProps;
-}
+import { mergeTheme } from '../../../utils';
+import { Container, Label, Input, InputTheme, defaultTheme } from './styles';
 
 export interface Props {
   id: string;
   name: string;
+  value: string | number;
   label?: string;
   type?: 'input' | 'textarea';
   placeholder?: string;
-  theme?: {
-    container?: FlexProps;
-    label?: TextProps;
-    input?: BoxProps;
-    textarea?: BoxProps;
-  };
+  theme?: InputTheme;
+  onBlur: () => void;
+  onFocus: () => void;
+  onChange: (event: ChangeEvent) => void;
 }
-
-const inputTheme = {
-  borderWidth: '1px',
-  borderStyle: 'solid',
-  borderColor: 'doveGray',
-  borderRadius: 1,
-  px: 3,
-  fontSize: 1,
-};
-
-const defaultTheme = {
-  container: {
-    flexDirection: 'column',
-    mb: 3,
-  },
-  label: {
-    fontSize: 2,
-    mb: 2,
-  },
-  input: {
-    ...inputTheme,
-    height: 36,
-  },
-  textarea: {
-    ...inputTheme,
-    height: 72,
-    py: 2,
-  },
-};
-
-const mergeTheme = (
-  key: keyof InputTheme,
-  theme?: InputTheme,
-): Record<string, unknown> => ({
-  ...defaultTheme[key],
-  ...(theme?.[key] ?? {}),
-});
 
 function InputUI({
   id,
@@ -68,22 +23,35 @@ function InputUI({
   label,
   theme,
   placeholder,
+  value,
+  onBlur,
+  onFocus,
+  onChange,
 }: Props): ReactElement<Props> {
   const inputType = type ?? 'input';
 
   return (
-    <Container {...mergeTheme('container', theme)}>
+    <Container {...mergeTheme('container', { theme, defaultTheme })}>
       {label && (
-        <Label as="label" htmlFor={id} {...mergeTheme('label', theme)}>
+        <Label
+          as="label"
+          htmlFor={id}
+          {...mergeTheme('label', { theme, defaultTheme })}
+        >
           {label}
         </Label>
       )}
       <Input
+        data-testid={id}
         as={inputType}
         id={id}
         name={name}
         placeholder={placeholder}
-        {...mergeTheme(inputType, theme)}
+        value={value}
+        {...mergeTheme(inputType, { theme, defaultTheme })}
+        onBlur={onBlur}
+        onFocus={onFocus}
+        onChange={onChange}
       />
     </Container>
   );

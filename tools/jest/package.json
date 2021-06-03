@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "description": "Jest config",
   "license": "ISC",
-  "main": "index.ts",
-  "module": "index.ts",
+  "main": "index.js",
+  "module": "index.js",
   "private": true,
   "scripts": {
     "build": ""

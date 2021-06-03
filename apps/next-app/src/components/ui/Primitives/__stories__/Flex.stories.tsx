@@ -7,7 +7,11 @@ export default {
   component: Flex,
 } as Meta;
 
-const Template: Story<FlexProps> = (args) => <Flex {...args}>Flex</Flex>;
+const Template: Story<FlexProps> = (args) => (
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore
+  <Flex {...args}>Flex</Flex>
+);
 
 export const DefaultFlex = Template.bind({});
 

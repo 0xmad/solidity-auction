@@ -22,6 +22,7 @@ export type BoxProps = SpaceProps &
   WidthProps &
   HeightProps &
   BorderProps &
+  ColorProps &
   FontSizeProps;
 
 export type FlexProps = BoxProps & FlexboxProps;
@@ -32,6 +33,7 @@ export type TextProps = ColorProps &
   FontSizeProps;
 
 export const Box = styled.div`
+  ${color};
   ${border};
   ${fontSize};
   ${space};
