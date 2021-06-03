@@ -2,13 +2,18 @@ const config = require('@errmac/jest');
 
 module.exports = {
   ...config,
+  globals: {
+    'ts-jest': {
+      tsconfig: './tsconfig.test.json',
+    },
+  },
   moduleNameMapper: {
-    '^.+\\.(css|less)$': '<rootDir>/config/CSSStub.ts',
+    '^.+\\.(css|less)$': './config/CSSStub.ts',
   },
   transform: {
     '^.+\\.(ts|tsx)$': 'ts-jest',
   },
-  setupFilesAfterEnv: ['<rootDir>/config/setupTests.ts'],
+  setupFilesAfterEnv: ['./config/setupTests.ts'],
   collectCoverageFrom: [
     'src/**/*.ts',
     'src/**/*.tsx',

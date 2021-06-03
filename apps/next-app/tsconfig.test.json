@@ -2,7 +2,7 @@
   "extends": "./node_modules/@errmac/react-eslint/tsconfig.json",
   "compilerOptions": {
     "types": ["node", "jest"],
-    "jsx": "preserve"
+    "jsx": "react-jsx"
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
   "exclude": ["node_modules"]

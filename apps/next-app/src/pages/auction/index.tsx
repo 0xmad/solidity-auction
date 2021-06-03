@@ -4,6 +4,7 @@ import Head from 'next/head';
 import { useForm, useField } from 'react-final-form-hooks';
 
 import { Input } from '../../components/ui';
+import { Form } from './styles';
 
 interface Values {
   name: string;
@@ -38,7 +39,7 @@ export default function Home(): ReactElement {
         <title>Create auction</title>
       </Head>
 
-      <form onSubmit={handleSubmit}>
+      <Form as="form" onSubmit={handleSubmit}>
         <Input
           id="name"
           name="name"
@@ -69,7 +70,7 @@ export default function Home(): ReactElement {
           <option value="art">Art</option>
           <option value="services">Services</option>
         </select>
-      </form>
+      </Form>
     </div>
   );
 }
