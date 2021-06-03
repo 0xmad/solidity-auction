@@ -7,7 +7,11 @@ export default {
   component: Box,
 } as Meta;
 
-const Template: Story<BoxProps> = (args) => <Box {...args}>Box</Box>;
+const Template: Story<BoxProps> = (args) => (
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore
+  <Box {...args}>Box</Box>
+);
 
 export const DefaultBox = Template.bind({});
 

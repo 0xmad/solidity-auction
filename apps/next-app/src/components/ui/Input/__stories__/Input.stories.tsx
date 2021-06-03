@@ -1,4 +1,3 @@
-import React from 'react';
 import { Story, Meta } from '@storybook/react';
 
 import Input, { Props } from '..';
@@ -6,6 +5,11 @@ import Input, { Props } from '..';
 export default {
   title: 'UI/Input',
   component: Input,
+  argTypes: {
+    onChange: { action: 'onChange' },
+    onBlur: { action: 'onBlur' },
+    onFocus: { action: 'onFocus' },
+  },
 } as Meta;
 
 const Template: Story<Props> = (args) => <Input {...args} />;

@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
-import { Box } from '../../components/ui';
+import { Flex, Box } from '../../components/ui';
 
-export const Form = styled(Box)``;
+export const Container = styled(Flex).attrs({ flexDirection: 'column' })``;
 
-export default {};
+export const Form = styled(Box).attrs({ width: '33%' })``;

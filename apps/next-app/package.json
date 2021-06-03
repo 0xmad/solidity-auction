@@ -51,6 +51,7 @@
     "@types/styled-system": "^5.1.11",
     "@types/testing-library__jest-dom": "^5.9.5",
     "babel-loader": "^8.2.2",
+    "babel-plugin-styled-components": "^1.12.0",
     "eslint": "^7.27.0",
     "jest": "^27.0.3",
     "lint-staged": "^11.0.0",

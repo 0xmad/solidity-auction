@@ -1,10 +1,9 @@
 import { ReactElement, useCallback } from 'react';
 import Head from 'next/head';
-
 import { useForm, useField } from 'react-final-form-hooks';
 
-import { Input } from '../../components/ui';
-import { Form } from './styles';
+import { Input, Button } from '../../components/ui';
+import { Container, Form } from './styles';
 
 interface Values {
   name: string;
@@ -34,7 +33,7 @@ export default function Home(): ReactElement {
   const startPrice = useField<number, Values>('startPrice', form);
 
   return (
-    <div data-testid="create-auction-page">
+    <Container data-testid="create-auction-page">
       <Head>
         <title>Create auction</title>
       </Head>
@@ -42,35 +41,31 @@ export default function Home(): ReactElement {
       <Form as="form" onSubmit={handleSubmit}>
         <Input
           id="name"
-          name="name"
           label="Item name"
           placeholder="Enter item name"
-          {...name}
+          {...name.input}
+          {...name.meta}
         />
 
         <Input
           id="description"
           type="textarea"
-          name="description"
           label="Item description"
           placeholder="Enter item description"
-          {...description}
+          {...description.input}
+          {...description.meta}
         />
 
         <Input
           id="startPrice"
-          name="startPrice"
           label="Item start price"
           placeholder="Enter item start price"
-          {...startPrice}
+          {...startPrice.input}
+          {...startPrice.meta}
         />
 
-        <label htmlFor="category">Item category</label>
-        <select id="category" name="category">
-          <option value="art">Art</option>
-          <option value="services">Services</option>
-        </select>
+        <Button onClick={handleSubmit}>Submit</Button>
       </Form>
-    </div>
+    </Container>
   );
 }
