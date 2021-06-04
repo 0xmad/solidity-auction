@@ -54,4 +54,11 @@ describe('components/UI/Input', () => {
     expect(onBlur).toBeCalledTimes(1);
     expect(onFocus).toBeCalledTimes(1);
   });
+
+  test('should render error', () => {
+    render(<Input {...props} meta={{ error: 'Error', touched: true }} />);
+
+    const input = screen.getByText('Error');
+    expect(input).toBeInTheDocument();
+  });
 });

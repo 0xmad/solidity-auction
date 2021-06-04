@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css, CSSProp } from 'styled-components';
 
 import { Box, Flex, Text, BoxProps, FlexProps, TextProps } from '../Primitives';
 
@@ -6,7 +6,22 @@ export const Container = styled(Flex)``;
 
 export const Label = styled(Text)``;
 
-export const Input = styled(Box)``;
+const errorCss = ({ error }: { error: boolean }): CSSProp | false =>
+  error &&
+  css`
+    border-color: red;
+  `;
+
+export const Input = styled(Box)`
+  ${errorCss};
+`;
+
+export const ErrorText = styled(Text).attrs({
+  as: 'small',
+  mt: 2,
+  fontSize: 0,
+  color: 'red',
+})``;
 
 export interface InputTheme {
   container?: FlexProps;

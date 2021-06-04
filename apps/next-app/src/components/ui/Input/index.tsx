@@ -1,7 +1,14 @@
 import { ChangeEvent, ReactElement } from 'react';
 
 import { mergeTheme } from '../../../utils';
-import { Container, Label, Input, InputTheme, defaultTheme } from './styles';
+import {
+  Container,
+  Label,
+  Input,
+  InputTheme,
+  ErrorText,
+  defaultTheme,
+} from './styles';
 
 export interface Props {
   id: string;
@@ -11,6 +18,7 @@ export interface Props {
   type?: 'input' | 'textarea';
   placeholder?: string;
   theme?: InputTheme;
+  meta?: unknown;
   onBlur: () => void;
   onFocus: () => void;
   onChange: (event: ChangeEvent) => void;
@@ -24,11 +32,14 @@ function InputUI({
   theme,
   placeholder,
   value,
+  meta,
   onBlur,
   onFocus,
   onChange,
 }: Props): ReactElement<Props> {
   const inputType = type ?? 'input';
+  const { error, touched } = meta as { error?: string; touched?: boolean };
+  const canShowError = Boolean(error && touched);
 
   return (
     <Container {...mergeTheme('container', { theme, defaultTheme })}>
@@ -44,6 +55,7 @@ function InputUI({
       <Input
         data-testid={id}
         as={inputType}
+        error={canShowError}
         id={id}
         name={name}
         placeholder={placeholder}
@@ -53,12 +65,14 @@ function InputUI({
         onFocus={onFocus}
         onChange={onChange}
       />
+      {canShowError && <ErrorText>{error}</ErrorText>}
     </Container>
   );
 }
 
 InputUI.defaultProps = {
   type: undefined,
+  meta: {},
   label: '',
   placeholder: '',
   theme: defaultTheme,

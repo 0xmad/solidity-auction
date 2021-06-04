@@ -23,6 +23,16 @@ DefaultInput.args = {
   placeholder: 'Enter item name',
 };
 
+export const InputWithError = Template.bind({});
+
+InputWithError.args = {
+  id: 'name',
+  name: 'name',
+  label: 'Item name',
+  placeholder: 'Enter item name',
+  meta: { error: 'Error', touched: true },
+};
+
 export const DefaultTextarea = Template.bind({});
 
 DefaultTextarea.args = {
