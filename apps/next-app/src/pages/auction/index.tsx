@@ -3,14 +3,8 @@ import Head from 'next/head';
 import { useForm, useField } from 'react-final-form-hooks';
 
 import { Input, Button } from '../../components/ui';
+import validate, { Values } from './validation';
 import { Container, Form } from './styles';
-
-interface Values {
-  name: string;
-  description: string;
-  startPrice: number;
-  category: string;
-}
 
 export default function Home(): ReactElement {
   const onSubmit = useCallback((values: Values) => {
@@ -25,6 +19,7 @@ export default function Home(): ReactElement {
       startPrice: 0,
       category: 'art',
     },
+    validate,
     onSubmit,
   });
 
@@ -43,8 +38,8 @@ export default function Home(): ReactElement {
           id="name"
           label="Item name"
           placeholder="Enter item name"
+          meta={name.meta}
           {...name.input}
-          {...name.meta}
         />
 
         <Input
@@ -52,16 +47,16 @@ export default function Home(): ReactElement {
           type="textarea"
           label="Item description"
           placeholder="Enter item description"
+          meta={description.meta}
           {...description.input}
-          {...description.meta}
         />
 
         <Input
           id="startPrice"
           label="Item start price"
           placeholder="Enter item start price"
+          meta={startPrice.meta}
           {...startPrice.input}
-          {...startPrice.meta}
         />
 
         <Button onClick={handleSubmit}>Submit</Button>
