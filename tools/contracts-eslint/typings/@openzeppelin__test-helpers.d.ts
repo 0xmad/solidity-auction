@@ -6,5 +6,9 @@ declare module '@openzeppelin/test-helpers' {
     expected: string,
   ): Promise<void>;
 
-  export function expectEvent(receipt: unknown, eventName: string): void;
+  export function expectEvent(
+    receipt: unknown,
+    eventName: string,
+    eventArgs?: unknown,
+  ): void;
 }

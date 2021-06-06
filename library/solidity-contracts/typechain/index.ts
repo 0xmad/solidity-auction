@@ -4,6 +4,7 @@
 export type { OwnableUpgradeable } from "./OwnableUpgradeable";
 export type { Ownable } from "./Ownable";
 export type { Auction } from "./Auction";
+export type { AuctionFactory } from "./AuctionFactory";
 export type { Types } from "./Types";
 export type { Coin } from "./Coin";
 export type { Greeter } from "./Greeter";
@@ -13,6 +14,7 @@ export type { Voting } from "./Voting";
 export { OwnableUpgradeable__factory } from "./factories/OwnableUpgradeable__factory";
 export { Ownable__factory } from "./factories/Ownable__factory";
 export { Auction__factory } from "./factories/Auction__factory";
+export { AuctionFactory__factory } from "./factories/AuctionFactory__factory";
 export { Types__factory } from "./factories/Types__factory";
 export { Coin__factory } from "./factories/Coin__factory";
 export { Greeter__factory } from "./factories/Greeter__factory";

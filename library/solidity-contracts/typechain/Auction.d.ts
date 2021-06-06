@@ -22,7 +22,7 @@ import { TypedEventFilter, TypedEvent, TypedListener } from "./commons";
 interface AuctionInterface extends ethers.utils.Interface {
   functions: {
     "auctionType()": FunctionFragment;
-    "c_0x6f550b83(bytes32)": FunctionFragment;
+    "c_0x4c3b74ab(bytes32)": FunctionFragment;
     "canceledAt()": FunctionFragment;
     "createdAt()": FunctionFragment;
     "endDate()": FunctionFragment;
@@ -41,7 +41,7 @@ interface AuctionInterface extends ethers.utils.Interface {
     values?: undefined
   ): string;
   encodeFunctionData(
-    functionFragment: "c_0x6f550b83",
+    functionFragment: "c_0x4c3b74ab",
     values: [BytesLike]
   ): string;
   encodeFunctionData(
@@ -85,7 +85,7 @@ interface AuctionInterface extends ethers.utils.Interface {
     data: BytesLike
   ): Result;
   decodeFunctionResult(
-    functionFragment: "c_0x6f550b83",
+    functionFragment: "c_0x4c3b74ab",
     data: BytesLike
   ): Result;
   decodeFunctionResult(functionFragment: "canceledAt", data: BytesLike): Result;
@@ -161,8 +161,8 @@ export class Auction extends BaseContract {
   functions: {
     auctionType(overrides?: CallOverrides): Promise<[number]>;
 
-    c_0x6f550b83(
-      c__0x6f550b83: BytesLike,
+    c_0x4c3b74ab(
+      c__0x4c3b74ab: BytesLike,
       overrides?: CallOverrides
     ): Promise<[void]>;
 
@@ -218,8 +218,8 @@ export class Auction extends BaseContract {
 
   auctionType(overrides?: CallOverrides): Promise<number>;
 
-  c_0x6f550b83(
-    c__0x6f550b83: BytesLike,
+  c_0x4c3b74ab(
+    c__0x4c3b74ab: BytesLike,
     overrides?: CallOverrides
   ): Promise<void>;
 
@@ -275,8 +275,8 @@ export class Auction extends BaseContract {
   callStatic: {
     auctionType(overrides?: CallOverrides): Promise<number>;
 
-    c_0x6f550b83(
-      c__0x6f550b83: BytesLike,
+    c_0x4c3b74ab(
+      c__0x4c3b74ab: BytesLike,
       overrides?: CallOverrides
     ): Promise<void>;
 
@@ -365,8 +365,8 @@ export class Auction extends BaseContract {
   estimateGas: {
     auctionType(overrides?: CallOverrides): Promise<BigNumber>;
 
-    c_0x6f550b83(
-      c__0x6f550b83: BytesLike,
+    c_0x4c3b74ab(
+      c__0x4c3b74ab: BytesLike,
       overrides?: CallOverrides
     ): Promise<BigNumber>;
 
@@ -414,8 +414,8 @@ export class Auction extends BaseContract {
   populateTransaction: {
     auctionType(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
-    c_0x6f550b83(
-      c__0x6f550b83: BytesLike,
+    c_0x4c3b74ab(
+      c__0x4c3b74ab: BytesLike,
       overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;
 

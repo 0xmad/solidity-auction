@@ -21,20 +21,20 @@ import { TypedEventFilter, TypedEvent, TypedListener } from "./commons";
 
 interface StorageInterface extends ethers.utils.Interface {
   functions: {
-    "c_0x353ef267(bytes32)": FunctionFragment;
+    "c_0xa9cb39ca(bytes32)": FunctionFragment;
     "get()": FunctionFragment;
     "set(uint256)": FunctionFragment;
   };
 
   encodeFunctionData(
-    functionFragment: "c_0x353ef267",
+    functionFragment: "c_0xa9cb39ca",
     values: [BytesLike]
   ): string;
   encodeFunctionData(functionFragment: "get", values?: undefined): string;
   encodeFunctionData(functionFragment: "set", values: [BigNumberish]): string;
 
   decodeFunctionResult(
-    functionFragment: "c_0x353ef267",
+    functionFragment: "c_0xa9cb39ca",
     data: BytesLike
   ): Result;
   decodeFunctionResult(functionFragment: "get", data: BytesLike): Result;
@@ -87,8 +87,8 @@ export class Storage extends BaseContract {
   interface: StorageInterface;
 
   functions: {
-    c_0x353ef267(
-      c__0x353ef267: BytesLike,
+    c_0xa9cb39ca(
+      c__0xa9cb39ca: BytesLike,
       overrides?: CallOverrides
     ): Promise<[void]>;
 
@@ -100,8 +100,8 @@ export class Storage extends BaseContract {
     ): Promise<ContractTransaction>;
   };
 
-  c_0x353ef267(
-    c__0x353ef267: BytesLike,
+  c_0xa9cb39ca(
+    c__0xa9cb39ca: BytesLike,
     overrides?: CallOverrides
   ): Promise<void>;
 
@@ -113,8 +113,8 @@ export class Storage extends BaseContract {
   ): Promise<ContractTransaction>;
 
   callStatic: {
-    c_0x353ef267(
-      c__0x353ef267: BytesLike,
+    c_0xa9cb39ca(
+      c__0xa9cb39ca: BytesLike,
       overrides?: CallOverrides
     ): Promise<void>;
 
@@ -126,8 +126,8 @@ export class Storage extends BaseContract {
   filters: {};
 
   estimateGas: {
-    c_0x353ef267(
-      c__0x353ef267: BytesLike,
+    c_0xa9cb39ca(
+      c__0xa9cb39ca: BytesLike,
       overrides?: CallOverrides
     ): Promise<BigNumber>;
 
@@ -140,8 +140,8 @@ export class Storage extends BaseContract {
   };
 
   populateTransaction: {
-    c_0x353ef267(
-      c__0x353ef267: BytesLike,
+    c_0xa9cb39ca(
+      c__0xa9cb39ca: BytesLike,
       overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;
 

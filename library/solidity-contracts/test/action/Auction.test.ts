@@ -1,29 +1,9 @@
 import { contract, defaultSender } from '@openzeppelin/test-environment';
 import { artifacts } from 'hardhat';
 import { expect } from 'chai';
-import { Auction as AuctionType } from '../typechain';
 
-interface NewAuction {
-  good: {
-    name: string;
-    description: string;
-    startPrice: number;
-    category: Category;
-  };
-  auctionType: Type;
-  startDate: number;
-  endDate: number;
-}
-
-enum Category {
-  SERVICES,
-  ART,
-}
-
-enum Type {
-  CLASSIC,
-  BLIND,
-}
+import { Auction as AuctionType } from '../../typechain';
+import { NewAuction, Type, Category } from './types';
 
 interface Contract {
   new: () => Promise<AuctionType>;
