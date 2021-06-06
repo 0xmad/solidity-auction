@@ -21,20 +21,20 @@ import { TypedEventFilter, TypedEvent, TypedListener } from "./commons";
 
 interface GreeterInterface extends ethers.utils.Interface {
   functions: {
-    "c_0x4baf4788(bytes32)": FunctionFragment;
+    "c_0xc3b2ff7f(bytes32)": FunctionFragment;
     "greet()": FunctionFragment;
     "setGreeting(string)": FunctionFragment;
   };
 
   encodeFunctionData(
-    functionFragment: "c_0x4baf4788",
+    functionFragment: "c_0xc3b2ff7f",
     values: [BytesLike]
   ): string;
   encodeFunctionData(functionFragment: "greet", values?: undefined): string;
   encodeFunctionData(functionFragment: "setGreeting", values: [string]): string;
 
   decodeFunctionResult(
-    functionFragment: "c_0x4baf4788",
+    functionFragment: "c_0xc3b2ff7f",
     data: BytesLike
   ): Result;
   decodeFunctionResult(functionFragment: "greet", data: BytesLike): Result;
@@ -90,8 +90,8 @@ export class Greeter extends BaseContract {
   interface: GreeterInterface;
 
   functions: {
-    c_0x4baf4788(
-      c__0x4baf4788: BytesLike,
+    c_0xc3b2ff7f(
+      c__0xc3b2ff7f: BytesLike,
       overrides?: CallOverrides
     ): Promise<[void]>;
 
@@ -103,8 +103,8 @@ export class Greeter extends BaseContract {
     ): Promise<ContractTransaction>;
   };
 
-  c_0x4baf4788(
-    c__0x4baf4788: BytesLike,
+  c_0xc3b2ff7f(
+    c__0xc3b2ff7f: BytesLike,
     overrides?: CallOverrides
   ): Promise<void>;
 
@@ -116,8 +116,8 @@ export class Greeter extends BaseContract {
   ): Promise<ContractTransaction>;
 
   callStatic: {
-    c_0x4baf4788(
-      c__0x4baf4788: BytesLike,
+    c_0xc3b2ff7f(
+      c__0xc3b2ff7f: BytesLike,
       overrides?: CallOverrides
     ): Promise<void>;
 
@@ -129,8 +129,8 @@ export class Greeter extends BaseContract {
   filters: {};
 
   estimateGas: {
-    c_0x4baf4788(
-      c__0x4baf4788: BytesLike,
+    c_0xc3b2ff7f(
+      c__0xc3b2ff7f: BytesLike,
       overrides?: CallOverrides
     ): Promise<BigNumber>;
 
@@ -143,8 +143,8 @@ export class Greeter extends BaseContract {
   };
 
   populateTransaction: {
-    c_0x4baf4788(
-      c__0x4baf4788: BytesLike,
+    c_0xc3b2ff7f(
+      c__0xc3b2ff7f: BytesLike,
       overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;
 

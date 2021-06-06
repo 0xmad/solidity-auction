@@ -22,7 +22,7 @@ import { TypedEventFilter, TypedEvent, TypedListener } from "./commons";
 interface CoinInterface extends ethers.utils.Interface {
   functions: {
     "balances(address)": FunctionFragment;
-    "c_0xeadce100(bytes32)": FunctionFragment;
+    "c_0xc26863bf(bytes32)": FunctionFragment;
     "mint(address,uint256)": FunctionFragment;
     "owner()": FunctionFragment;
     "renounceOwnership()": FunctionFragment;
@@ -32,7 +32,7 @@ interface CoinInterface extends ethers.utils.Interface {
 
   encodeFunctionData(functionFragment: "balances", values: [string]): string;
   encodeFunctionData(
-    functionFragment: "c_0xeadce100",
+    functionFragment: "c_0xc26863bf",
     values: [BytesLike]
   ): string;
   encodeFunctionData(
@@ -55,7 +55,7 @@ interface CoinInterface extends ethers.utils.Interface {
 
   decodeFunctionResult(functionFragment: "balances", data: BytesLike): Result;
   decodeFunctionResult(
-    functionFragment: "c_0xeadce100",
+    functionFragment: "c_0xc26863bf",
     data: BytesLike
   ): Result;
   decodeFunctionResult(functionFragment: "mint", data: BytesLike): Result;
@@ -125,8 +125,8 @@ export class Coin extends BaseContract {
   functions: {
     balances(arg0: string, overrides?: CallOverrides): Promise<[BigNumber]>;
 
-    c_0xeadce100(
-      c__0xeadce100: BytesLike,
+    c_0xc26863bf(
+      c__0xc26863bf: BytesLike,
       overrides?: CallOverrides
     ): Promise<[void]>;
 
@@ -156,8 +156,8 @@ export class Coin extends BaseContract {
 
   balances(arg0: string, overrides?: CallOverrides): Promise<BigNumber>;
 
-  c_0xeadce100(
-    c__0xeadce100: BytesLike,
+  c_0xc26863bf(
+    c__0xc26863bf: BytesLike,
     overrides?: CallOverrides
   ): Promise<void>;
 
@@ -187,8 +187,8 @@ export class Coin extends BaseContract {
   callStatic: {
     balances(arg0: string, overrides?: CallOverrides): Promise<BigNumber>;
 
-    c_0xeadce100(
-      c__0xeadce100: BytesLike,
+    c_0xc26863bf(
+      c__0xc26863bf: BytesLike,
       overrides?: CallOverrides
     ): Promise<void>;
 
@@ -246,8 +246,8 @@ export class Coin extends BaseContract {
   estimateGas: {
     balances(arg0: string, overrides?: CallOverrides): Promise<BigNumber>;
 
-    c_0xeadce100(
-      c__0xeadce100: BytesLike,
+    c_0xc26863bf(
+      c__0xc26863bf: BytesLike,
       overrides?: CallOverrides
     ): Promise<BigNumber>;
 
@@ -281,8 +281,8 @@ export class Coin extends BaseContract {
       overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;
 
-    c_0xeadce100(
-      c__0xeadce100: BytesLike,
+    c_0xc26863bf(
+      c__0xc26863bf: BytesLike,
       overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;
 

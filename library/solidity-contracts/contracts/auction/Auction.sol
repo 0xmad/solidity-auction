@@ -5,25 +5,7 @@ pragma solidity ^0.8.4;
 import "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol";
 import "@openzeppelin/contracts/utils/math/SafeMath.sol";
 
-library Types {
-    struct Good {
-        string name;
-        string description;
-        uint256 startPrice;
-        Category category;
-    }
-
-    struct NewAuction {
-        uint256 startDate;
-        uint256 endDate;
-        AuctionType auctionType;
-        Good good;
-    }
-
-    enum Category { SERVICES, ART }
-
-    enum AuctionType { CLASSIC, BLIND }
-}
+import "./AuctionLibrary.sol";
 
 contract Auction is OwnableUpgradeable {
     using SafeMath for uint256;
@@ -46,7 +28,7 @@ contract Auction is OwnableUpgradeable {
 
     event AuctionCompleted(bytes32 id, Types.Good good);
 
-    function initialize(Types.NewAuction memory auction) initializer public {
+    function initialize(Types.NewAuction memory auction) public initializer {
         __Ownable_init();
 
         id = keccak256(abi.encode(auction));

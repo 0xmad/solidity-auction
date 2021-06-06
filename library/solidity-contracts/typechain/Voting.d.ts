@@ -21,7 +21,7 @@ import { TypedEventFilter, TypedEvent, TypedListener } from "./commons";
 
 interface VotingInterface extends ethers.utils.Interface {
   functions: {
-    "c_0x75fb0e59(bytes32)": FunctionFragment;
+    "c_0x2b3c491b(bytes32)": FunctionFragment;
     "chairperson()": FunctionFragment;
     "giveRightToVote(address)": FunctionFragment;
     "owner()": FunctionFragment;
@@ -32,7 +32,7 @@ interface VotingInterface extends ethers.utils.Interface {
   };
 
   encodeFunctionData(
-    functionFragment: "c_0x75fb0e59",
+    functionFragment: "c_0x2b3c491b",
     values: [BytesLike]
   ): string;
   encodeFunctionData(
@@ -59,7 +59,7 @@ interface VotingInterface extends ethers.utils.Interface {
   encodeFunctionData(functionFragment: "voters", values: [string]): string;
 
   decodeFunctionResult(
-    functionFragment: "c_0x75fb0e59",
+    functionFragment: "c_0x2b3c491b",
     data: BytesLike
   ): Result;
   decodeFunctionResult(
@@ -133,8 +133,8 @@ export class Voting extends BaseContract {
   interface: VotingInterface;
 
   functions: {
-    c_0x75fb0e59(
-      c__0x75fb0e59: BytesLike,
+    c_0x2b3c491b(
+      c__0x2b3c491b: BytesLike,
       overrides?: CallOverrides
     ): Promise<[void]>;
 
@@ -173,8 +173,8 @@ export class Voting extends BaseContract {
     >;
   };
 
-  c_0x75fb0e59(
-    c__0x75fb0e59: BytesLike,
+  c_0x2b3c491b(
+    c__0x2b3c491b: BytesLike,
     overrides?: CallOverrides
   ): Promise<void>;
 
@@ -213,8 +213,8 @@ export class Voting extends BaseContract {
   >;
 
   callStatic: {
-    c_0x75fb0e59(
-      c__0x75fb0e59: BytesLike,
+    c_0x2b3c491b(
+      c__0x2b3c491b: BytesLike,
       overrides?: CallOverrides
     ): Promise<void>;
 
@@ -259,8 +259,8 @@ export class Voting extends BaseContract {
   };
 
   estimateGas: {
-    c_0x75fb0e59(
-      c__0x75fb0e59: BytesLike,
+    c_0x2b3c491b(
+      c__0x2b3c491b: BytesLike,
       overrides?: CallOverrides
     ): Promise<BigNumber>;
 
@@ -291,8 +291,8 @@ export class Voting extends BaseContract {
   };
 
   populateTransaction: {
-    c_0x75fb0e59(
-      c__0x75fb0e59: BytesLike,
+    c_0x2b3c491b(
+      c__0x2b3c491b: BytesLike,
       overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;
 
